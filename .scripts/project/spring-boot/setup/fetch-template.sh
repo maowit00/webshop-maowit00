@@ -26,7 +26,7 @@ curl --fail --show-error --silent https://start.spring.io/starter.zip \
   -d dependencies=web,data-jpa,h2 \
   -o webshopbackend.zip
 
-unzip webshopbackend.zip -d ./webshop-backend
+unzip webshopbackend.zip -d ./webshopbackend
 
 rm webshopbackend.zip
 
