@@ -2,7 +2,7 @@
 
 ## New Branch
 
-- [ ] Create branch `week2-1`
+- [x] Create branch `week2-1`
 
 - From terminal:
 
@@ -19,7 +19,7 @@ git switch -c week2-1 week1
 
 ## Install Java Deps (Backend)
 
-- [ ] Install Java OpenJDK and Maven
+- [x] Install Java OpenJDK and Maven
 
 ```console
 sudo apt update
@@ -30,7 +30,7 @@ See script at [/.scripts/setup/java/install.sh](/.scripts/setup/java/install.sh)
 
 ## Get Template
 
-- [ ] [Create Spring Boot Template](https://start.spring.io/)
+- [x] [Create Spring Boot Template](https://start.spring.io/)
 
 Create spring boot project
 
@@ -50,19 +50,19 @@ Create spring boot project
   - Spring Data JPA
   - H2 Database
 
-- [ ] Script pls, [fetch spring boot template curl](/.scripts/project/spring-boot/setup/fetch-template.sh)
+- [x] Script pls, [fetch spring boot template curl](/.scripts/project/spring-boot/setup/fetch-template.sh)
 
 ## Extend Backend from Template
 
-- [ ] Create [.....model/Item.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)
+- [x] Create [.....model/Item.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)
 
-- [ ] Create [..... controller/ItemController.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
+- [x] Create [..... controller/ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
 
-- [ ] Create [..... repository/ItemRepository.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java)
+- [x] Create [..... repository/ItemRepository.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java)
 
 ---
 
-- [ ] Create [/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)
+- [x] Create [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)
 
 ```java
 package de.hsesslingen.webshopbackend.model;
@@ -133,8 +133,8 @@ public class Item {
 }
 ```
 
-- [ ] Create [/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
-  - [ ] Replace `[your-hs-esslingen-user-name]` with username!
+- [x] Create [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
+  - [x] Replace `[your-hs-esslingen-user-name]` with username!
 
 ```java
 package de.hsesslingen.webshopbackend.controller;
@@ -248,7 +248,7 @@ public class ItemController {
 }
 ```
 
-- [ ] Create [/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java](/webshop-backend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java)
+- [x] Create [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/repository/ItemRepository.java)
 
 ```java
 package de.hsesslingen.webshopbackend.repository;
@@ -260,26 +260,26 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import de.hsesslingen.webshopbackend.model.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
-  
-  List<Item> findByTitleContaining(String title);
-  
+
+    List<Item> findByTitleContaining(String title);
+
 }
 ```
 
 ## Config Properties
 
-- [ ] Edit [webshop-backend/src/main/resources](/webshop-backend/src/main/resources/application.properties)
-  - [ ] Replace `[your-hs-esslingen-user-name]` with username
-  - [ ] Come up with an original password.
-  - [ ] Check a unique number
+- [x] Edit [webshopbackend/src/main/resources](/webshopbackend/src/main/resources/application.properties)
+  - [x] Replace `[your-hs-esslingen-user-name]` with username
+  - [x] Come up with an original password.
+  - [x] Check a unique number
 
-In the folder `~/lab/[your-project-folder]/webshop-backend/src/main/resources` modify the file application.properties to use the code shown below. Note that you have to fill in appropriate values for the parameters given in `[]`. You can find your unique number in the ReadMe file of your project.
+In the folder `~/lab/[your-project-folder]/webshopbackend/src/main/resources` modify the file application.properties to use the code shown below. Note that you have to fill in appropriate values for the parameters given in `[]`. You can find your unique number in the ReadMe file of your project.
 
 ```properties
 server.port=8245
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-ui
- 
+
 spring.datasource.url=jdbc:h2:mem:itemdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=webshop-maowit00
@@ -291,16 +291,16 @@ spring.jpa.hibernate.ddl-auto= update
 
 ## Test
 
-- [ ] Test
-  - cd into `webshop-backend`
+- [x] Test
+  - cd into `webshopbackend`
 
 ```console
 mvn spring-boot:run
 ```
 
-- [ ] Insert dummy data into h2-ui
+- [x] Insert dummy data into h2-ui
 
-- [ ] Go to <http://localhost:8245/h2-ui>
+- [x] Go to <http://localhost:8245/h2-ui>
 
 In the browser navigate to `http://localhost:82[your-unique-number]/h2-ui/` to start the UI for the in memory database.
 
@@ -348,10 +348,13 @@ INSERT INTO item (title, description, price) VALUES ('Winning ugly - Mentale Kri
 INSERT INTO item (title, description, price) VALUES ('Chuck', 'When a computer geek inadvertently downloads critical government secrets into his brain, both the CIA and the NSA assign an agent to protect him and exploit his newfound skills.', 14.99);
 ```
 
-- [ ] Checkout JSON Response in Browser <http://localhost:8245/api-maowit00/item-management/items>
+- [x] Checkout JSON Response in Browser <http://localhost:8245/api-maowit00/item-management/items>
 
-- [ ] Screenshot the SQL commit
+- [x] Screenshot the JSON Response
+  - [ ] proper naming scheme under [/doc/week2-items-maowit00.png](/doc/week2-items-maowit00.png)
+
+![/doc/week2-items-maowit00.png](/doc/week2-items-maowit00.png)
 
 ## Commit and Push
 
-- [ ] git commit and push `week2-1`
+- [x] git commit and push `week2-1`
