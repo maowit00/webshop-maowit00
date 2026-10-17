@@ -28,9 +28,8 @@ Use Vite 8 beat (Experimental)?: no
 Install with npm and start now?: yes
 ```
 
-- [ ] Add webpage icon from <https://moodle.hs-esslingen.de/moodle/pluginfile.php/739044/mod_page/content/33/hs-esslingen.png> at []
-
-  - [ ] Use the one from public webpage <https://www.hs-esslingen.de/_assets/a56ae91e12d607d39339b1d55834c4d9/Images/favicon/favicon.ico>
+- [x] Add webpage icon from <https://moodle.hs-esslingen.de/moodle/pluginfile.php/739044/mod_page/content/33/hs-esslingen.png> at [webshopfrontend/src/assets](/webshopfrontend/src/assets)
+  - [x] Use the one from public webpage <https://www.hs-esslingen.de/_assets/a56ae91e12d607d39339b1d55834c4d9/Images/favicon/favicon.ico>
   - An `.ico` should be as good as an `.png` for `16x16` icon.
 
 ```console
@@ -39,7 +38,7 @@ curl -L --create-dirs -o webshopfrontend/src/assets/hs-esslingen.ico "https://ww
 
 ### Extend Template
 
-- [ ] Modify [/webshopfrontend/index.html](/webshopfrontend/index.html)
+- [x] Modify [/webshopfrontend/index.html](/webshopfrontend/index.html)
 
 ```html
 <!doctype html>
@@ -57,7 +56,7 @@ curl -L --create-dirs -o webshopfrontend/src/assets/hs-esslingen.ico "https://ww
 </html>
 ```
 
-- [ ] Modify project config at [vite.config.js](/webshopfrontend/vite.config.js)
+- [x] Modify project config at [vite.config.js](/webshopfrontend/vite.config.js)
 
 Replace with unique number.
 
@@ -73,7 +72,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] Modify [main.js](/webshopfrontend/src/main.js)
+- [x] Modify [main.js](/webshopfrontend/src/main.js)
 
 ```javascript
 import { createApp } from 'vue';
@@ -94,7 +93,7 @@ app.use(router)
 app.mount('#app')
 ```
 
-- [ ] Modify [App.vue](/webshopfrontend/src/App.vue)
+- [x] Modify [App.vue](/webshopfrontend/src/App.vue)
 
 ```vue
 <template>
@@ -139,7 +138,7 @@ app.mount('#app')
 </style>
 ```
 
-- [ ] Create [/webshopbackend/src/router/index.html](/webshopbackend/src/router/index.html)
+- [x] Create [webshopfrontend/src/router/index.js](/webshopfrontend/src/router/index.js)
 
 > Still in the same folder, create the folder 'router' and within this folder the file 'index.js' that contains the following code.
 
@@ -179,9 +178,9 @@ const router = createRouter({
 export default router
 ```
 
-- [ ] Delete [HelloWorld.vue](/webshopfrontend/src/components/HelloWorld.vue)
+- [x] Delete [HelloWorld.vue](/webshopfrontend/src/components/HelloWorld.vue)
 
-- [ ] Create [Item.vue](/webshopfrontend/src/components/Item.vue)
+- [x] Create [Item.vue](/webshopfrontend/src/components/Item.vue)
 
 ```vue
 <template>
@@ -253,7 +252,7 @@ onMounted(async () => {
 </style>
 ```
 
-- [ ] Create [ItemList.vue](/webshopfrontend/src/components/ItemList.vue)
+- [x] Create [ItemList.vue](/webshopfrontend/src/components/ItemList.vue)
 
 ```vue
 <template>
@@ -348,7 +347,7 @@ onMounted(() => {
 </style>
 ```
 
-- [ ] Create [AddItem.vue](/webshopfrontend/src/components/AddItem.vue)
+- [x] Create [AddItem.vue](/webshopfrontend/src/components/AddItem.vue)
 
 ```vue
 <template>
@@ -425,7 +424,7 @@ async function saveItem() {
 </style>
 ```
 
-- [ ] Create [EditItem.vue](/webshopfrontend/src/components/EditItem.vue)
+- [x] Create [EditItem.vue](/webshopfrontend/src/components/EditItem.vue)
 
 ```vue
 <template>
@@ -520,9 +519,9 @@ onMounted(async () => {
 </style>
 ```
 
-- [ ] Create [webshopfrontend/src/services](/webshopfrontend/src/services) directory.
+- [x] Create [webshopfrontend/src/services](/webshopfrontend/src/services) directory.
 
-- [ ] Create [ItemDataService.js](/webshopfrontend/src/services/ItemDataService.js)
+- [x] Create [ItemDataService.js](/webshopfrontend/src/services/ItemDataService.js)
 
 ```javascript
 import http from "../http-common";
@@ -560,20 +559,20 @@ class ItemDataService {
 export default new ItemDataService();
 ```
 
-- [ ] Create [http-common.js](/webshopbackend/src/http-common.js)
+- [x] Create [http-common.js](/webshopfrontend/src/http-common.js)
 
 ```javascript
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:82[your-unique-numer]/api-[your-hs-esslingen-user-name]/item-management",
+  baseURL: "http://localhost:8245/api-maowit00/item-management",
   headers: {
     "Content-type": "application/json"
   }
 });
 ```
 
-- [ ] Modify [package.json](/webshopfrontend/package.json) to add dependencies.
+- [x] Modify [package.json](/webshopfrontend/package.json) to add dependencies.
 
 ```json
 {
@@ -602,7 +601,7 @@ export default axios.create({
 }
 ```
 
-- [ ] Configure Backend with `@CrossOrigin` Annotation at [webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
+- [x] Configure Backend with `@CrossOrigin` Annotation at [webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
 
 ```java
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -614,13 +613,13 @@ public class ItemController {
 
 ## Testing Changes
 
-- [ ] Install Frontend dependencies
+- [x] Install Frontend dependencies
 
 ```console
 npm install
 ```
 
-- [ ] Check frontend testing server
+- [x] Check frontend testing server
 
 ```console
 npm run dev
