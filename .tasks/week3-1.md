@@ -8,15 +8,15 @@
 
 ### Install DevTools
 
-- [ ] Install nodejs
-- [ ] Install npm
-- [ ] Installer Scripts of course
+- [x] Install nodejs
+- [x] Install npm
+- [x] Installer Scripts of course
 
 ### Setup Project
 
-- [ ] Create frontend directory `webshopfrontend`
-- [ ] Create vue.js project with vite
-- [ ] Init script
+- [x] Create frontend directory `webshopfrontend`
+- [x] Create vue.js project with vite
+- [x] Init script
 
 ```options
 Chose the following options:
