@@ -22,6 +22,7 @@ import de.hsesslingen.webshopbackend.repository.ItemRepository;
 
 @RestController
 @RequestMapping("/api-maowit00/item-management/")
+@CrossOrigin(origins = "http://localhost:8145")
 public class ItemController {
 
 	@Autowired
