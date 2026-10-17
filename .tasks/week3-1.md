@@ -625,6 +625,12 @@ npm install
 npm run dev
 ```
 
+- [ ] Start backend at backend directory
+
+```console
+mvn spring-boot:run
+```
+
 - [ ] Check changes at <http://localhost:8145>
 
 - [ ] Screenshot under the path [doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
