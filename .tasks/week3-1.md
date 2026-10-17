@@ -602,6 +602,8 @@ export default axios.create({
 ```
 
 - [x] Configure Backend with `@CrossOrigin` Annotation at [webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
+  - [x] Add import
+  - [x] Add annotation
 
 ```java
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -625,18 +627,18 @@ npm install
 npm run dev
 ```
 
-- [ ] Start backend at backend directory
+- [x] Start backend at backend directory
 
 ```console
 mvn spring-boot:run
 ```
 
-- [ ] Check changes at <http://localhost:8145>
+- [x] Check changes at <http://localhost:8145>
 
-- [ ] Screenshot under the path [doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
+- [x] Screenshot under the path [doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
 
 ![doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
 
-- [ ] Commit changes
+- [x] Commit changes
 
-- [ ] Push and create merge request with viewier notification.
+- [x] Push and create merge request with viewier notification.
