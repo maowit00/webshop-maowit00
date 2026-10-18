@@ -36,16 +36,16 @@ But this is already not real data anyhow.
 
 ### Model
 
-- [ ] Modify Model to account for the new table shape
+- [x] Modify Model to account for the new table shape
 
-- [ ] Extend Model [webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)- [ ] Add availability Attribute
+- [x] Extend Model [webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/model/Item.java)- [ ] Add availability Attribute
 
 ```java
     @Column(name = "availability")
     private Integer availability;
 ```
 
-- [ ] Update Constructor
+- [x] Update Constructor
 
 ```java
 public Item(String title, String description, BigDecimal price, Integer availability) {
@@ -56,7 +56,7 @@ public Item(String title, String description, BigDecimal price, Integer availabi
 }
 ```
 
-- [ ] Add getter method
+- [x] Add getter method
 
 ```java
 public Integer getAvailability() {
@@ -64,7 +64,7 @@ public Integer getAvailability() {
 }
 ```
 
-- [ ] Add setter method
+- [x] Add setter method
 
 ```java
 public void setAvailability(Integer availability) {
@@ -72,7 +72,7 @@ public void setAvailability(Integer availability) {
 }
 ```
 
-- [ ] Update String Representation
+- [x] Update String Representation
 
 ```java
 @Override
@@ -83,9 +83,9 @@ public String toString() {
 
 ### Controller
 
-- [ ] Update Backend [ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
+- [x] Update Backend [ItemController.java](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/controller/ItemController.java)
 
-- [ ] Update POST Mapping to account for the new attribute
+- [x] Update POST Mapping to account for the new attribute
 
 ```java
 @PostMapping("/items")
@@ -100,7 +100,7 @@ public ResponseEntity<Item> createItem(@RequestBody Item item) {
 }
 ```
 
-- [ ] Update PUT Mapping
+- [x] Update PUT Mapping
 
 ```java
 @PutMapping("/items/{id}")
@@ -122,11 +122,13 @@ public ResponseEntity<Item> updateItem(@PathVariable("id") long id, @RequestBody
 
 ### Test Backend
 
-- [ ] Check if mvn project still builds
+- [x] Check if mvn project still builds
 
 ```console
 mvn spring-boot:run
 ```
+
+- [x] See at <http://localhost:8245/api-maowit00/item-management/items>
 
 ### Update Frontend
 

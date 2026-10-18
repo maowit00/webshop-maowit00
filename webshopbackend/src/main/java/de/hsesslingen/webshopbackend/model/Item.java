@@ -20,14 +20,18 @@ public class Item {
 	@Column(name = "price")
 	private BigDecimal price;
 
+	@Column(name = "availability")
+	private Integer availability;
+
 	public Item() {
 
 	}
 
-	public Item(String title, String description, BigDecimal price) {
+	public Item(String title, String description, BigDecimal price, Integer availability) {
 		this.title = title;
 		this.description = description;
 		this.price = price;
+		this.availability = availability;
 	}
 
 	public long getId() {
@@ -58,9 +62,17 @@ public class Item {
 		this.price = price;
 	}
 
+	public Integer getAvailability() {
+		return this.availability;
+	}
+
+	public void setAvailability(Integer availability) {
+		this.availability = availability;
+	}
+
 	@Override
 	public String toString() {
-		return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", price=" + price + "]";
+		return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", price=" + price + ", availability=" + availability + "]";
 	}
 
 }

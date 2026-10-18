@@ -65,7 +65,7 @@ public class ItemController {
 	public ResponseEntity<Item> createItem(@RequestBody Item item) {
 		try {
 			Item _item = itemRepository
-					.save(new Item(item.getTitle(), item.getDescription(), item.getPrice()));
+					.save(new Item(item.getTitle(), item.getDescription(), item.getPrice(), item.getAvailability()));
 			return new ResponseEntity<>(_item, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -81,6 +81,7 @@ public class ItemController {
 			_item.setTitle(item.getTitle());
 			_item.setDescription(item.getDescription());
 			_item.setPrice(item.getPrice());
+			_item.setAvailability(item.getAvailability());
 			return new ResponseEntity<>(itemRepository.save(_item), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
