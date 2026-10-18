@@ -4,7 +4,7 @@ Extend Project with `availability` Attribute for listed items in the webshop
 
 ## Migrate DB
 
-- [ ] Migrate existing data base with the new scheme.
+- [x] Migrate existing data base with the new scheme.
 
 ```SQL
 CREATE TABLE item (
@@ -30,7 +30,7 @@ ALTER TABLE item ALTER COLUMN availability DROP DEFAULT;
 
 But this is already not real data anyhow.
 
-- [ ] Update SQL init scripts
+- [x] Update SQL init scripts
 
 ## Update Backend
 
