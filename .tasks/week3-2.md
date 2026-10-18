@@ -132,11 +132,11 @@ mvn spring-boot:run
 
 ### Update Frontend
 
-- [ ] Update Frontend user interface to insert availability info.
+- [x] Update Frontend user interface to insert availability info.
 
 ## [Item.vue](/webshopfrontend/src/components/Item.vue)
 
-- [ ] Extend [Item.vue](/webshopfrontend/src/components/Item.vue) with availability div
+- [x] Extend [Item.vue](/webshopfrontend/src/components/Item.vue) with availability div
 
 ```vue
       <div class="form-group">
@@ -147,7 +147,7 @@ mvn spring-boot:run
 
 ## [ItemList.vue](/webshopfrontend/src/components/ItemList.vue)
 
-- [ ] Extend [ItemList.vue](/webshopfrontend/src/components/ItemList.vue)
+- [x] Extend [ItemList.vue](/webshopfrontend/src/components/ItemList.vue)
 
 ```vue
 <div>
@@ -157,7 +157,7 @@ mvn spring-boot:run
 
 ## [EditItem.vue](/webshopfrontend/src/components/EditItem.vue)
 
-- [ ] Extend [EditItem.vue](/webshopfrontend/src/components/EditItem.vue)
+- [x] Extend [EditItem.vue](/webshopfrontend/src/components/EditItem.vue)
 
 ```vue
       <div class="form-group">
@@ -168,7 +168,7 @@ mvn spring-boot:run
 
 ## [AddItem.vue](/webshopfrontend/src/components/AddItem.vue)
 
-- [ ] Extend [AddItem.vue](/webshopfrontend/src/components/AddItem.vue)
+- [x] Extend [AddItem.vue](/webshopfrontend/src/components/AddItem.vue)
 
 ```vue
     <div class="form-group">
@@ -179,18 +179,23 @@ mvn spring-boot:run
 
 ### Testing
 
-- [ ] Check frontend server
+- [x] Check frontend server
 
 ```console
 npm run dev
 ```
 
+- [x] Go to <http://localhost:8145>
+
 ## Committing
 
-- [ ] Check if everything works
-  - [ ] Launch backend/frontend
-  - [ ] Go to <http://localhost:8145>
+- [x] Check if everything works
+  - [x] Launch backend/frontend
+  - [x] Go to <http://localhost:8145>
 
 - [ ] Some Screenshots
+  - [ ] item view
+  - [ ] item view
+  - [ ] item view
 
 - [ ] Commit, Push and Ask for Merge

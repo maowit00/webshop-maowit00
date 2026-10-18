@@ -14,6 +14,10 @@
         <label for="price">Price</label>
         <input type="text" class="form-control" id="price" v-model="currentItem.price" />
       </div>
+      <div class="form-group">
+        <label for="availability">Availability</label>
+        <input type="text" class="form-control" id="availability" v-model="currentItem.availability" />
+      </div>
     </form>
     <button type="submit" class="btn btn-success" @click="updateItem">
       Update

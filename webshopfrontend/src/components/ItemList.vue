@@ -22,6 +22,9 @@
             <div>
               {{ "Price: " + item.price }}
             </div>
+            <div>
+              {{ "Availability: " + item.availability }}
+            </div>
           </div>
         </li>
       </ul>

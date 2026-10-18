@@ -14,6 +14,10 @@
       <label for="price">Price</label>
       <input class="form-control" id="price" required v-model="item.price" name="price" type="text" />
     </div>
+    <div class="form-group">
+      <label for="availability">Availability</label>
+      <input class="form-control" id="availability" required v-model="item.availability" name="price" type="text" />
+    </div>
 
     <button @click="saveItem" class="btn btn-success">Submit</button>
     <p>{{ message }}</p>

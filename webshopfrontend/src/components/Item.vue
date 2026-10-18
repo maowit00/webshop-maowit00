@@ -14,6 +14,10 @@
         <div>Price</div>
         <div>{{ currentItem.price }}</div>
       </div>
+      <div class="form-group">
+        <div>Availability</div>
+        <div>{{ currentItem.availability }}</div>
+      </div>
     </form>
     <button type="edit" class="btn btn-success" @click="editItem">
       Edit
