@@ -635,9 +635,9 @@ mvn spring-boot:run
 
 - [x] Check changes at <http://localhost:8145>
 
-- [x] Screenshot under the path [doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
+- [x] Screenshot under the path [docs/week3-items-list-view-maowit00.png](/docs/week3-items-list-view-maowit00.png)
 
-![doc/week3-items-list-view-maowit00.png](/doc/week3-items-list-view-maowit00.png)
+![docs/week3-items-list-view-maowit00.png](/docs/week3-items-list-view-maowit00.png)
 
 - [x] Commit changes
 

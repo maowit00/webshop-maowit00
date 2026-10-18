@@ -351,9 +351,9 @@ INSERT INTO item (title, description, price) VALUES ('Chuck', 'When a computer g
 - [x] Checkout JSON Response in Browser <http://localhost:8245/api-maowit00/item-management/items>
 
 - [x] Screenshot the JSON Response
-  - [ ] proper naming scheme under [/doc/week2-items-maowit00.png](/doc/week2-items-maowit00.png)
+  - [ ] proper naming scheme under [/docs/week2-items-maowit00.png](/docs/week2-items-maowit00.png)
 
-![/doc/week2-items-maowit00.png](/doc/week2-items-maowit00.png)
+![/docs/week2-items-maowit00.png](/docs/week2-items-maowit00.png)
 
 ## Commit and Push
 

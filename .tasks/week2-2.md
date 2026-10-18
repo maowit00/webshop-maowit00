@@ -72,9 +72,9 @@ In the folder `~/lab/[your-project-folder]/webshopbackend` update the POM.xml fi
 In the browser navigate to `http://localhost:82[your-unique-number]/api-[your-hs-esslingen-user-name]/item-management/items` to query all entries of the table item.
 
 - [x] Screenshot
-  - [x] name it [doc/week2-postgress-items-maowit00.png](/doc/week2-postgress-items-maowit00.png)
+  - [x] name it [docs/week2-postgress-items-maowit00.png](/docs/week2-postgress-items-maowit00.png)
 
-![doc/week2-postgress-items-maowit00.png](/doc/week2-postgress-items-maowit00.png)
+![docs/week2-postgress-items-maowit00.png](/docs/week2-postgress-items-maowit00.png)
 
 - [x] Commit and push
 
