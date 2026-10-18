@@ -193,9 +193,15 @@ npm run dev
   - [x] Launch backend/frontend
   - [x] Go to <http://localhost:8145>
 
-- [ ] Some Screenshots
-  - [ ] item view
-  - [ ] item view
-  - [ ] item view
+- [x] Some Screenshots
+  - [x] [items list view](/docs/week3-items-list-view-availability-maowit00.png)
+  - [x] [item view](/docs/week3-item-view-availability-maowit00.png)
+  - [x] [edit item view](/docs/week3-edit-item-view-availability-maowit00.png)
+  - [x] [add item view](/docs/week3-add-item-view-availability-maowit00.png)
 
-- [ ] Commit, Push and Ask for Merge
+![items list view](/docs/week3-items-list-view-availability-maowit00.png)
+![item view](/docs/week3-item-view-availability-maowit00.png)
+![edit item view](/docs/week3-edit-item-view-availability-maowit00.png)
+![add item view](/docs/week3-add-item-view-availability-maowit00.png)
+
+- [x] Commit, Push and Ask for Merge
