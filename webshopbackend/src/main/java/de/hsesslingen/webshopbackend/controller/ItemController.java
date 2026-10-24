@@ -28,9 +28,19 @@ import de.hsesslingen.webshopbackend.mapper.ItemMapper;
 
 import java.util.stream.Collectors;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @RestController
 @RequestMapping("/api-maowit00/item-management/v1")
 @CrossOrigin(origins = "http://localhost:8145")
+@Tag(name = "HS Esslingen Webshop", description = "This is a sample webshop to demonstrate a fullstack web application")
 public class ItemController {
 
 	@Autowired
@@ -39,6 +49,12 @@ public class ItemController {
 	@Autowired
 	ItemRepository itemRepository;
 
+	@Operation(summary = "Get all items", description = "Returns all items, optionally filtered by title")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Items found", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ItemResponseDTO.class)))),
+			@ApiResponse(responseCode = "404", description = "No items found", content = @Content),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+	})
 	@GetMapping("/items")
 	public ResponseEntity<List<ItemResponseDTO>> getAllItems(@RequestParam(required = false) String title) {
 
@@ -65,6 +81,11 @@ public class ItemController {
 		}
 	}
 
+	@Operation(summary = "Get item by ID", description = "Returns a single item by its ID")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Item found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ItemResponseDTO.class))),
+			@ApiResponse(responseCode = "404", description = "Item not found", content = @Content)
+	})
 	@GetMapping("/items/{id}")
 	public ResponseEntity<ItemResponseDTO> getItemById(@PathVariable("id") long id) {
 		Optional<Item> itemData = itemRepository.findById(id);
@@ -76,6 +97,11 @@ public class ItemController {
 		}
 	}
 
+	@Operation(summary = "Create a new item", description = "Creates a new item and returns the created item including its generated ID")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "201", description = "Item created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ItemResponseDTO.class))),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+	})
 	@PostMapping("/items")
 	public ResponseEntity<ItemResponseDTO> createItem(@RequestBody ItemCreateDTO itemCreateDTO) {
 		try {
@@ -87,6 +113,11 @@ public class ItemController {
 		}
 	}
 
+	@Operation(summary = "Update an item", description = "Updates an existing item by its ID and returns the updated item")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Item updated", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ItemResponseDTO.class))),
+			@ApiResponse(responseCode = "404", description = "Item not found", content = @Content)
+	})
 	@PutMapping("/items/{id}")
 	public ResponseEntity<ItemResponseDTO> updateItem(@PathVariable("id") long id,
 			@RequestBody ItemUpdateDTO itemUpdateDTO) {
@@ -102,6 +133,11 @@ public class ItemController {
 		}
 	}
 
+	@Operation(summary = "Delete an item", description = "Deletes a single item by its ID")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "204", description = "Item deleted", content = @Content),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+	})
 	@DeleteMapping("/items/{id}")
 	public ResponseEntity<HttpStatus> deleteItem(@PathVariable("id") long id) {
 		try {
@@ -112,6 +148,11 @@ public class ItemController {
 		}
 	}
 
+	@Operation(summary = "Delete all items", description = "Deletes all items from the webshop")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "204", description = "All items deleted", content = @Content),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+	})
 	@DeleteMapping("/items")
 	public ResponseEntity<HttpStatus> deleteAllItems() {
 		try {
