@@ -493,17 +493,17 @@ sudo apt install ./bruno_arm64.deb.
 
 ### Create a collection
 
-- [ ] Use OpenAPI URL
+- [y] Use OpenAPI URL
 
 ```url
 http://localhost:8245/v3/api-docs
 ```
 
-- [ ] Use location to be `webshopbackend/src/test/resources/api-test`
+- [y] Use location to be `webshopbackend/src/test/resources/api-test`
 
-- [ ] Create Environment thingy
+- [y] Create Environment thingy
 
-- [ ] Add `baseUrl` and `id` to Vars
+- [y] Add `baseUrl` and `id` to Vars
 
 ```url
 http://localhost:8245
@@ -511,12 +511,28 @@ http://localhost:8245
 
 - For each request with the id as (path) parameter add the value '{{id}}' to the parameter definition 'id'
 
-- [ ] DON'T TEST `Delete`
-- [ ] Test Everything
+- [y] DON'T TEST `Delete`
+- [x] Test Everything
 
 ### Screenshots Docs
 
-- [ ] Test [week4-getAllItems-maowit00](/docs/week4-getAllItems-maowit00.png)
-- [ ] Test [week4-getItem-maowit00](/docs/week4-getItem-maowit00.png)
-- [ ] Test [week4-createItem-maowit00](/docs/week4-createItem-maowit00.png)
-- [ ] Test [week4-updateItem-maowit00](/docs/week4-getAllItems-maowit00.png)
+- [x] Test [week4-getAllItems-maowit00][week4-getAllItems-maowit00]
+- [x] Test [week4-getItem-maowit00][week4-getItem-maowit00]
+- [x] Test [week4-createItem-maowit00][week4-createItem-maowit00]
+- [x] Test [week4-updateItem-maowit00][week4-updateItem-maowit00]
+
+![week4-getAllItems-maowit00][week4-getAllItems-maowit00]
+![week4-getItem-maowit00][week4-getItem-maowit00]
+![week4-createItem-maowit00][week4-createItem-maowit00]
+![week4-updateItem-maowit00][week4-updateItem-maowit00]
+
+[week4-getAllItems-maowit00]: /docs/week4-getAllItems-maowit00.png
+[week4-getItem-maowit00]: /docs/week4-getItem-maowit00.png
+[week4-createItem-maowit00]: /docs/week4-createItem-maowit00.png
+[week4-updateItem-maowit00]: /docs/week4-getAllItems-maowit00.png
+
+## Commit and Merge
+
+- [x] Commit all changes
+
+- [x] Create Merge request at GitLab for `week4-1`

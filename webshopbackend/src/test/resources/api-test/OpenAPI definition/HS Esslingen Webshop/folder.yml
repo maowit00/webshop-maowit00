@@ -1,0 +1,13 @@
+info:
+  name: HS Esslingen Webshop
+  type: folder
+
+request:
+  auth: inherit
+  variables:
+    - name: baseUrl
+      value: http://localhost:8245
+
+docs:
+  content: This is a sample webshop to demonstrate a fullstack web application
+  type: text/markdown

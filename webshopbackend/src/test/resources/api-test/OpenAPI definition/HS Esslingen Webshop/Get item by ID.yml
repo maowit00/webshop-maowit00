@@ -1,0 +1,62 @@
+info:
+  name: Get item by ID
+  type: http
+  seq: 1
+  tags:
+    - HS Esslingen Webshop
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api-maowit00/item-management/v1/items/{{id}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: Item found
+    request:
+      url: "{{baseUrl}}/api-maowit00/item-management/v1/items/:id"
+      method: GET
+      params:
+        - name: id
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": 1,
+            "title": "Principles of transaction processing",
+            "description": "A clear and concise guide for anyone involved in developing applications",
+            "price": 9.99,
+            "availability": 10
+          }
+  - name: 404 Response
+    description: Item not found
+    request:
+      url: "{{baseUrl}}/api-maowit00/item-management/v1/items/:id"
+      method: GET
+      params:
+        - name: id
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+
+docs: Returns a single item by its ID

@@ -1,0 +1,29 @@
+opencollection: 1.0.0
+
+info:
+  name: OpenAPI definition
+  version: "1"
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+    openapi:
+      - sourceUrl: http://localhost:8245/v3/api-docs
+        groupBy: tags
+        lastSyncDate: 2026-10-24T07:53:16.566Z
+        specHash: 5ab063332ab432664bf74972f3cbc94d
+        autoCheck: true
+        autoCheckInterval: 5

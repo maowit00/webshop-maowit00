@@ -1,0 +1,52 @@
+info:
+  name: Delete an item
+  type: http
+  seq: 3
+  tags:
+    - HS Esslingen Webshop
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api-maowit00/item-management/v1/items/{{id}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 204 Response
+    description: Item deleted
+    request:
+      url: "{{baseUrl}}/api-maowit00/item-management/v1/items/:id"
+      method: DELETE
+      params:
+        - name: id
+          value: ""
+          type: path
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error
+    request:
+      url: "{{baseUrl}}/api-maowit00/item-management/v1/items/:id"
+      method: DELETE
+      params:
+        - name: id
+          value: ""
+          type: path
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
+docs: Deletes a single item by its ID

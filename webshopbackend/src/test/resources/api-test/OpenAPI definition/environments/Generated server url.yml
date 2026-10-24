@@ -1,0 +1,8 @@
+name: Generated server url
+variables:
+  - name: baseUrl
+    value: http://localhost:8245
+    description: ""
+  - name: id
+    value: "1"
+    description: ""
