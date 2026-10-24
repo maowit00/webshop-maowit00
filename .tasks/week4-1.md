@@ -4,10 +4,10 @@
 
 ## Introduce DTOs
 
-- [ ] Create dto directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto)
-- [ ] Create mapper directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/mapper](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/mapper)
+- [x] Create dto directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto)
+- [x] Create mapper directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/mapper](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/mapper)
 
-- [ ] Create [ItemCreateDTO.java][ItemCreateDTO.java]
+- [x] Create [ItemCreateDTO.java][ItemCreateDTO.java]
 
 ```java
 package de.hsesslingen.webshopbackend.dto;
@@ -15,36 +15,36 @@ package de.hsesslingen.webshopbackend.dto;
 import java.math.BigDecimal;
 
 public class ItemCreateDTO {
-    
+
     private String title;
     private String description;
     private BigDecimal price;
     private Integer availability;
-    
+
     public ItemCreateDTO() {}
-    
+
     public ItemCreateDTO(String title, String description, BigDecimal price, Integer availability) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.availability = availability;
     }
- 
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
-    
+
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    
+
     public BigDecimal getPrice() { return price; }
     public void setPrice(BigDecimal price) { this.price = price; }
-    
+
     public Integer getAvailability() { return availability; }
     public void setAvailability(Integer availability) { this.availability = availability; }
 }
 ```
 
-- [ ] Create [ItemUpdateDTO.java][ItemUpdateDTO.java]
+- [x] Create [ItemUpdateDTO.java][ItemUpdateDTO.java]
 
 ```java
 package de.hsesslingen.webshopbackend.dto;
@@ -52,29 +52,29 @@ package de.hsesslingen.webshopbackend.dto;
 import java.math.BigDecimal;
 
 public class ItemUpdateDTO {
-    
+
     private String title;
     private String description;
     private BigDecimal price;
     private Integer availability;
-    
+
     public ItemUpdateDTO() {}
-    
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
-    
+
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    
+
     public BigDecimal getPrice() { return price; }
     public void setPrice(BigDecimal price) { this.price = price; }
-    
+
     public Integer getAvailability() { return availability; }
     public void setAvailability(Integer availability) { this.availability = availability; }
 }
 ```
 
-- [ ] Create [ItemResponseDTO.java][ItemResponseDTO.java]
+- [x] Create [ItemResponseDTO.java][ItemResponseDTO.java]
 
 ```java
 package de.hsesslingen.webshopbackend.dto;
@@ -82,7 +82,7 @@ package de.hsesslingen.webshopbackend.dto;
 import java.math.BigDecimal;
 
 public class ItemResponseDTO {
-    
+
     private long id;
     private String title;
     private String description;
@@ -90,7 +90,7 @@ public class ItemResponseDTO {
     private Integer availability;
 
     public ItemResponseDTO() {}
-    
+
     public ItemResponseDTO(long id, String title, String description, BigDecimal price, Integer availability) {
         this.id = id;
         this.title = title;
@@ -98,25 +98,25 @@ public class ItemResponseDTO {
         this.price = price;
         this.availability = availability;
     }
-    
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
-    
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
-    
+
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    
+
     public BigDecimal getPrice() { return price; }
     public void setPrice(BigDecimal price) { this.price = price; }
-    
+
     public Integer getAvailability() { return availability; }
     public void setAvailability(Integer availability) { this.availability = availability; }
 }
 ```
 
-- [ ] Create [ItemMapper.java][ItemMapper.java]
+- [x] Create [ItemMapper.java][ItemMapper.java]
 
 ```java
 package de.hsesslingen.webshopbackend.mapper;
@@ -129,7 +129,7 @@ import de.hsesslingen.webshopbackend.dto.ItemResponseDTO;
 
 @Component
 public class ItemMapper {
-    
+
     public Item toEntity(ItemCreateDTO dto) {
         if (dto == null) {
             return null;
@@ -141,7 +141,7 @@ public class ItemMapper {
             dto.getAvailability()
         );
     }
-    
+
     public ItemResponseDTO toResponseDTO(Item entity) {
         if (entity == null) {
             return null;
@@ -154,7 +154,7 @@ public class ItemMapper {
             entity.getAvailability()
         );
     }
-    
+
     public void updateEntityFromDTO(ItemUpdateDTO dto, Item entity) {
         if (dto == null || entity == null) {
             return;
@@ -170,7 +170,6 @@ public class ItemMapper {
 [ItemCreateDTO.java]: /webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto/ItemCreateDTO.java
 [ItemUpdateDTO.java]: /webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto/ItemUpdateDTO.java
 [ItemResponseDTO.java]: /webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto/ItemResponseDTO.java
-
 [ItemMapper.java]: /webshopbackend/src/main/java/de/hsesslingen/webshopbackend/mapper/ItemMapper.java
 
 ### Modify Controller
