@@ -264,3 +264,189 @@ mvn spring-boot:run
 - [x] Go to <http://localhost:8245/api-maowit00/item-management/v1/items>
 
 - [x] Commit changes
+
+## API Documentation
+
+- [ ] Add dependency to [POM.xm](/webshopbackend/pom.xml)
+
+```XML
+<dependency>
+  <groupId>org.springdoc</groupId>
+  <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+  <version>3.1.1</version>
+</dependency>
+```
+
+### DTO Doc Annotations
+
+- [ ] Add doc annotation to to:
+  - [ ] [ItemCreateDTO.java][ItemCreateDTO.java]
+  - [ ] [ItemUpdateDTO.java][ItemUpdateDTO.java]
+  - [ ] [ItemResponseDTO.java][ItemResponseDTO.java]
+
+- [ ] Import
+
+```java
+import io.swagger.v3.oas.annotations.media.Schema;
+```
+
+- [ ] Add schema doc to `title`
+
+```java
+@Schema(description = "Title of the item", example = "Principles of transaction processing")
+```
+
+- [ ] Add schema doc to `description`
+
+```java
+@Schema(description = "Detailed description of the item", example = "A clear and concise guide for anyone involved in developing applications")
+```
+
+- [ ] Add schema doc to `price`
+
+```java
+@Schema(description = "Price in EUR", example = "9.99")
+```
+
+- [ ] Add schema doc to `availability`
+
+```java
+@Schema(description = "Availability of the item", example = "10")
+```
+
+- [ ] By [ItemResponseDTO.java][ItemResponseDTO.java] add schema doc to `id`
+
+```java
+@Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "Auto-generated item ID", example = "1")
+```
+
+### Controllers Doc Annotations
+
+- [ ] Add import to [ItemController.java][ItemController.java]
+
+```java
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+```
+
+- [ ] Add `@Tag` to `ItemController` class definition
+
+```java
+@Tag(name = "HS Esslingen Webshop", description = "This is a sample webshop to demonstrate a fullstack web application")
+```
+
+- [ ] Add doc annotation to `getAllItems`
+
+```java
+@Operation(summary = "Get all items", description = "Returns all items, optionally filtered by title")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "200", description = "Items found",
+        content = @Content(
+            mediaType = "application/json",
+            array = @ArraySchema(schema = @Schema(implementation = ItemResponseDTO.class))
+        )
+    ),
+    @ApiResponse(responseCode = "404", description = "No items found",
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Internal server error",
+        content = @Content)
+})
+```
+
+### HTTP Requests Doc Annotation
+
+- [ ] Add corresponding annotations also to the other operations.
+
+- [ ] `getItemById`
+
+```java
+@Operation(summary = "Get item by ID", description = "Returns a single item by its ID")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "200", description = "Item found",
+        content = @Content(
+            mediaType = "application/json",
+            schema = @Schema(implementation = ItemResponseDTO.class)
+        )
+    ),
+    @ApiResponse(responseCode = "404", description = "Item not found",
+        content = @Content)
+})
+```
+
+- [ ] `createItem`
+
+```java
+@Operation(summary = "Create a new item", description = "Creates a new item and returns the created item including its generated ID")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "201", description = "Item created",
+        content = @Content(
+            mediaType = "application/json",
+            schema = @Schema(implementation = ItemResponseDTO.class)
+        )
+    ),
+    @ApiResponse(responseCode = "500", description = "Internal server error",
+        content = @Content)
+})
+```
+
+- [ ] `updateItem`
+
+```java
+@Operation(summary = "Update an item", description = "Updates an existing item by its ID and returns the updated item")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "200", description = "Item updated",
+        content = @Content(
+            mediaType = "application/json",
+            schema = @Schema(implementation = ItemResponseDTO.class)
+        )
+    ),
+    @ApiResponse(responseCode = "404", description = "Item not found",
+        content = @Content)
+})
+```
+
+- [ ] `deleteItem`
+
+```java
+@Operation(summary = "Delete an item", description = "Deletes a single item by its ID")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "204", description = "Item deleted",
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Internal server error",
+        content = @Content)
+})
+```
+
+- [ ] `deleteAllItems`
+
+```java
+@Operation(summary = "Delete all items", description = "Deletes all items from the webshop")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "204", description = "All items deleted",
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Internal server error",
+        content = @Content)
+})
+```
+
+### Testing API Doc
+
+- [ ] Start backend
+
+```java
+mvn spring-boot:run
+```
+
+- [ ] Go to <http://localhost:8245/swagger-ui/index.html>
+
+- [ ] Make screenshot [docs/week4-swagger-ui.png](/docs/week4-swagger-ui.png)
+
+![docs/week4-swagger-ui.png](/docs/week4-swagger-ui.png)
+
+- [ ] Commit changes
