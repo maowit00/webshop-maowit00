@@ -2,6 +2,10 @@
 
 - [x] Create branch `week4-1`
 
+- [x] Add the Version `/v1` in the ItemController of the backend and the http-commons in the frontend.
+  - [x] Modify backend [ItemController.java][ItemController.java]
+  - [x] modify `http-common` [webshopfrontend/src/http-common.js](/webshopfrontend/src/http-common.js)
+
 ## Introduce DTOs
 
 - [x] Create dto directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/dto)
@@ -174,7 +178,7 @@ public class ItemMapper {
 
 ### Modify Controller
 
-- Add imports to [ItemController.java][ItemController.java]
+- [x] Add imports to [ItemController.java][ItemController.java]
 
 ```java
 import de.hsesslingen.webshopbackend.dto.ItemCreateDTO;
@@ -185,16 +189,24 @@ import de.hsesslingen.webshopbackend.mapper.ItemMapper;
 import java.util.stream.Collectors;
 ```
 
-- Add Annotation to the `ItemController`
+- [x] Add new attribute with an annotation to the `ItemController`
 
 ```java
 @Autowired
 ItemMapper itemMapper;
 ```
 
-- [ ] Replace the methods that returns `Item` with `ItemResponseDTO` in [ItemController.java][ItemController.java]
+- [x] Replace the methods that returns `Item` with `ItemResponseDTO` in [ItemController.java][ItemController.java]
+  - [x] method `getAllItems`
+  - [x] method `getItemById`
+  - [x] method `createItem`
+  - [x] method `updateItem`
 
-- [ ] Modify implementation of `getAllItems`
+```java
+public ResponseEntity<List<ItemResponseDTO>> getAllItems(@RequestParam(required = false) String title) {
+```
+
+- [x] Modify implementation of `getAllItems`
 
 ```java
 List<ItemResponseDTO> responseDTOs = items.stream()
@@ -204,19 +216,19 @@ List<ItemResponseDTO> responseDTOs = items.stream()
 return new ResponseEntity<>(responseDTOs, HttpStatus.OK);
 ```
 
-- [ ] Modify `getItemById`
+- [x] Modify `getItemById`
 
 ```java
 return new ResponseEntity<>(itemMapper.toResponseDTO(itemData.get()), HttpStatus.OK);
 ```
 
-- [ ] Change input parameter of `createItem`
+- [x] Change input parameter of `createItem`
 
 ```java
 @RequestBody ItemCreateDTO itemCreateDTO
 ```
 
-- [ ] Modify the try catch block
+- [x] Modify the try catch block
 
 ```java
 Item item = itemMapper.toEntity(itemCreateDTO);
@@ -224,13 +236,13 @@ Item savedItem = itemRepository.save(item);
 return new ResponseEntity<>(itemMapper.toResponseDTO(savedItem), HttpStatus.CREATED);
 ```
 
-- [ ] Change function parameter of `updateItem` to be `ItemUpdateDTO`
+- [x] Change function parameter of `updateItem` to be `ItemUpdateDTO`
 
 ```java
 @RequestBody ItemUpdateDTO itemUpdateDTO
 ```
 
-- [ ] Modify the if-block
+- [x] Modify the if-block
 
 ```java
 Item item = itemData.get();
@@ -243,10 +255,12 @@ return new ResponseEntity<>(itemMapper.toResponseDTO(savedItem), HttpStatus.OK);
 
 ### Testing
 
-- [ ] Test if you broke the backend
+- [x] Test if you broke the backend
 
 ```java
 mvn spring-boot:run
 ```
 
-- [ ] Commit changes
+- [x] Go to <http://localhost:8245/api-maowit00/item-management/v1/items>
+
+- [x] Commit changes

@@ -21,17 +21,27 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import de.hsesslingen.webshopbackend.model.Item;
 import de.hsesslingen.webshopbackend.repository.ItemRepository;
 
+import de.hsesslingen.webshopbackend.dto.ItemCreateDTO;
+import de.hsesslingen.webshopbackend.dto.ItemUpdateDTO;
+import de.hsesslingen.webshopbackend.dto.ItemResponseDTO;
+import de.hsesslingen.webshopbackend.mapper.ItemMapper;
+
+import java.util.stream.Collectors;
+
 @RestController
-@RequestMapping("/api-maowit00/item-management/")
+@RequestMapping("/api-maowit00/item-management/v1")
 @CrossOrigin(origins = "http://localhost:8145")
 public class ItemController {
+
+	@Autowired
+	ItemMapper itemMapper;
 
 	@Autowired
 	ItemRepository itemRepository;
 
 	@GetMapping("/items")
-	public ResponseEntity<List<Item>> getAllItems(@RequestParam(required = false) String title) {
-		
+	public ResponseEntity<List<ItemResponseDTO>> getAllItems(@RequestParam(required = false) String title) {
+
 		try {
 			List<Item> items = new ArrayList<Item>();
 
@@ -44,45 +54,49 @@ public class ItemController {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 
-			return new ResponseEntity<>(items, HttpStatus.OK);
+			List<ItemResponseDTO> responseDTOs = items.stream()
+					.map(itemMapper::toResponseDTO)
+					.collect(Collectors.toList());
+
+			return new ResponseEntity<>(responseDTOs, HttpStatus.OK);
+
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@GetMapping("/items/{id}")
-	public ResponseEntity<Item> getItemById(@PathVariable("id") long id) {
+	public ResponseEntity<ItemResponseDTO> getItemById(@PathVariable("id") long id) {
 		Optional<Item> itemData = itemRepository.findById(id);
 
 		if (itemData.isPresent()) {
-			return new ResponseEntity<>(itemData.get(), HttpStatus.OK);
+			return new ResponseEntity<>(itemMapper.toResponseDTO(itemData.get()), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@PostMapping("/items")
-	public ResponseEntity<Item> createItem(@RequestBody Item item) {
+	public ResponseEntity<ItemResponseDTO> createItem(@RequestBody ItemCreateDTO itemCreateDTO) {
 		try {
-			Item _item = itemRepository
-					.save(new Item(item.getTitle(), item.getDescription(), item.getPrice(), item.getAvailability()));
-			return new ResponseEntity<>(_item, HttpStatus.CREATED);
+			Item item = itemMapper.toEntity(itemCreateDTO);
+			Item savedItem = itemRepository.save(item);
+			return new ResponseEntity<>(itemMapper.toResponseDTO(savedItem), HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@PutMapping("/items/{id}")
-	public ResponseEntity<Item> updateItem(@PathVariable("id") long id, @RequestBody Item item) {
+	public ResponseEntity<ItemResponseDTO> updateItem(@PathVariable("id") long id,
+			@RequestBody ItemUpdateDTO itemUpdateDTO) {
 		Optional<Item> itemData = itemRepository.findById(id);
 
 		if (itemData.isPresent()) {
-			Item _item = itemData.get();
-			_item.setTitle(item.getTitle());
-			_item.setDescription(item.getDescription());
-			_item.setPrice(item.getPrice());
-			_item.setAvailability(item.getAvailability());
-			return new ResponseEntity<>(itemRepository.save(_item), HttpStatus.OK);
+			Item item = itemData.get();
+			itemMapper.updateEntityFromDTO(itemUpdateDTO, item);
+			Item savedItem = itemRepository.save(item);
+			return new ResponseEntity<>(itemMapper.toResponseDTO(savedItem), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
