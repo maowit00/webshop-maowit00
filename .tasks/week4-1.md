@@ -450,3 +450,73 @@ mvn spring-boot:run
 ![docs/week4-swagger-ui.png](/docs/week4-swagger-ui.png)
 
 - [ ] Commit changes
+
+## Install Bruno
+
+- Install [bruno from snap](https://snapcraft.io/bruno)
+
+```console
+sudo snap install bruno
+```
+
+> Might won't for arm!
+
+- Use the [brew](https://brew.sh/) Package manager to install [the cli one](https://formulae.brew.sh/formula/bruno-cli)
+
+```console
+brew install bruno-cli
+```
+
+### The More Complicated Way
+
+Add mirror to the apt list by imports and trust gpg keys
+
+- x86
+
+```console
+sudo mkdir -p /etc/apt/keyrings
+sudo apt update && sudo apt install gpg curl
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9FA6017ECABE0266" | gpg --dearmor | sudo tee /etc/apt/keyrings/bruno.gpg > /dev/null
+sudo chmod 644 /etc/apt/keyrings/bruno.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/bruno.gpg] http://debian.usebruno.com/ bruno stable" | sudo tee /etc/apt/sources.list.d/bruno.list
+sudo apt update && sudo apt install bruno
+```
+
+- arm
+
+```console
+wget -O bruno_arm64.deb "https://github.com/usebruno/bruno/releases/latest/download/bruno_4.1.0_arm64_linux.deb"
+sudo apt install ./bruno_arm64.deb.
+```
+
+## Test REST API
+
+### Create a collection
+
+- [ ] Use OpenAPI URL
+
+```url
+http://localhost:8245/v3/api-docs
+```
+
+- [ ] Use location to be `webshopbackend/src/test/resources/api-test`
+
+- [ ] Create Environment thingy
+
+- [ ] Add `baseUrl` and `id` to Vars
+
+```url
+http://localhost:8245
+```
+
+- For each request with the id as (path) parameter add the value '{{id}}' to the parameter definition 'id'
+
+- [ ] DON'T TEST `Delete`
+- [ ] Test Everything
+
+### Screenshots Docs
+
+- [ ] Test [week4-getAllItems-maowit00](/docs/week4-getAllItems-maowit00.png)
+- [ ] Test [week4-getItem-maowit00](/docs/week4-getItem-maowit00.png)
+- [ ] Test [week4-createItem-maowit00](/docs/week4-createItem-maowit00.png)
+- [ ] Test [week4-updateItem-maowit00](/docs/week4-getAllItems-maowit00.png)
