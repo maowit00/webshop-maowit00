@@ -47,7 +47,7 @@ public class DevJWTSecurityConfig {
 }
 ```
 
-- [ ] Add the `Profile` annotation to [JWTSecurityConfig.java][JWTSecurityConfig.java] (the import `org.springframework.context.annotation.Profile` is already there)
+- [x] Add the `Profile` annotation to [JWTSecurityConfig.java][JWTSecurityConfig.java] (the import `org.springframework.context.annotation.Profile` is already there)
 
 ```java
 @Profile("prod")
@@ -60,7 +60,7 @@ public class DevJWTSecurityConfig {
 public class JWTSecurityConfig {
 ```
 
-- [ ] Configure the active profile in [application.properties](/webshopbackend/src/main/resources/application.properties)
+- [x] Configure the active profile in [application.properties](/webshopbackend/src/main/resources/application.properties)
 
 ```properties
 spring.profiles.active=dev
@@ -74,7 +74,7 @@ spring.profiles.active=dev
 
 ## Add response header `server-port`
 
-- [ ] Create the directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/filter](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/filter)
+- [x] Create the directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/filter](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/filter)
 
 ```console
 mkdir -p webshopbackend/src/main/java/de/hsesslingen/webshopbackend/filter
@@ -114,14 +114,18 @@ public class AddResponseHeaderFilter implements Filter {
 
 ## Test changes
 
-- [ ] Start the backend (first instance, port `8245`)
+- [x] Start the backend (first instance, port `8245`)
 
-- [ ] Test the API with Bruno. The response must contain the header `server-port`
+```console
+mvn spring-boot:run
+```
+
+- [x] Test the API with Bruno. The response must contain the header `server-port`
 
 ### Screenshots Docs (first instance)
 
-- [ ] Create screenshot [week5-GET-8245-maowit00][week5-GET-8245-maowit00]
-- [ ] Create screenshot [week5-PUT-8245-maowit00][week5-PUT-8245-maowit00]
+- [x] Create screenshot [week5-GET-8245-maowit00][week5-GET-8245-maowit00]
+- [x] Create screenshot [week5-PUT-8245-maowit00][week5-PUT-8245-maowit00]
 
 ![week5-GET-8245-maowit00][week5-GET-8245-maowit00]
 ![week5-PUT-8245-maowit00][week5-PUT-8245-maowit00]
@@ -131,7 +135,7 @@ public class AddResponseHeaderFilter implements Filter {
 
 ## Second backend instance
 
-- [ ] Start a second instance of the backend on port `8290` (in a second terminal, inside `webshopbackend`)
+- [x] Start a second instance of the backend on port `8290` (in a second terminal, inside `webshopbackend`)
 
 ```console
 env SERVER_PORT=8290 mvn spring-boot:run
@@ -139,14 +143,14 @@ env SERVER_PORT=8290 mvn spring-boot:run
 
 > Note: if `mvn` is not installed, use the wrapper `env SERVER_PORT=8290 ./mvnw spring-boot:run`.
 
-- [ ] In Bruno duplicate the collection and name it `ItemManagement-8290`
-- [ ] Adapt the port in the requests to `8290`
-- [ ] Test the API. The response header `server-port` must show `8290`
+- [x] In Bruno duplicate the collection and name it `ItemManagement-8290`
+- [x] Adapt the port in the requests to `8290`
+- [x] Test the API. The response header `server-port` must show `8290`
 
 ### Screenshots Docs (second instance)
 
-- [ ] Create screenshot [week5-GET-8290-maowit00][week5-GET-8290-maowit00]
-- [ ] Create screenshot [week5-PUT-8290-maowit00][week5-PUT-8290-maowit00]
+- [x] Create screenshot [week5-GET-8290-maowit00][week5-GET-8290-maowit00]
+- [x] Create screenshot [week5-PUT-8290-maowit00][week5-PUT-8290-maowit00]
 
 ![week5-GET-8290-maowit00][week5-GET-8290-maowit00]
 ![week5-PUT-8290-maowit00][week5-PUT-8290-maowit00]

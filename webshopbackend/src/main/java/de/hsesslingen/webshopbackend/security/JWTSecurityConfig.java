@@ -19,6 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@Profile("prod")
 public class JWTSecurityConfig {
 
     private static final String CLIENT_ID = "webshop-maowit00";

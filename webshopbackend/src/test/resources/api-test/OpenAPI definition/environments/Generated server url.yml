@@ -6,3 +6,6 @@ variables:
   - name: id
     value: "1"
     description: ""
+  - name: baseUrl-dev
+    value: http://localhost:8290
+    description: ""
