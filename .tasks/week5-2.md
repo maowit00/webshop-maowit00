@@ -160,31 +160,25 @@ env SERVER_PORT=8290 mvn spring-boot:run
 
 ## Install nginx
 
-- [ ] Update the repository index
+- [x] Update the repository index
 
 ```console
 sudo apt update
 ```
 
-- [ ] Install nginx
+- [x] Install nginx
 
 ```console
 sudo apt install -y nginx
 ```
 
-- [ ] Check installation
+- [x] Check installation
 
 ```console
 nginx -v
 ```
 
-Results in something like:
-
-```console
-nginx version: nginx/1.28.3 (Ubuntu)
-```
-
-- [ ] Check status of the nginx service
+- [x] Check status of the nginx service
 
 ```console
 systemctl status nginx
@@ -211,13 +205,13 @@ sudo systemctl start nginx
 The configuration is defined in `/etc/nginx/nginx.conf`.
 It forwards all requests sent to `/api-maowit00/item-management/v1` to the servers defined in the `upstream` `item-management-pool`.
 
-- [ ] Backup the original configuration
+- [x] Backup the original configuration
 
 ```console
 sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 ```
 
-- [ ] Replace the content of `/etc/nginx/nginx.conf`
+- [x] Replace the content of `/etc/nginx/nginx.conf`
 
 ```console
 sudo nano /etc/nginx/nginx.conf
@@ -275,17 +269,19 @@ http {
 }
 ```
 
-- [ ] Check the configuration for syntax errors
+- [x] Check the configuration for syntax errors
 
 ```console
 sudo nginx -t
 ```
 
-- [ ] Restart nginx
+- [x] Restart nginx
 
 ```console
 sudo systemctl restart nginx
 ```
+
+- [x] Write a script that does all that [nginx/install.sh](/.scripts/setup/nginx/install.sh)
 
 ## Test load balancing
 
