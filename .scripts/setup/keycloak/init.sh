@@ -121,7 +121,7 @@ echo ">> User: $HS_USER"
 "$KCADM" create users -r "$REALM" \
   -s username="$HS_USER" \
   -s enabled=true \
-  -s email="${HS_USER}@example.com" \
+  -s email="${HS_USER}@hs-esslingen.de" \
   -s emailVerified=true \
   -s firstName="$HS_USER" \
   -s lastName="$HS_USER"
