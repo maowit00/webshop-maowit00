@@ -1,0 +1,9 @@
+
+keycloak-*.zip
+
+keycloak
+
+*.log
+
+!*export.zip
+

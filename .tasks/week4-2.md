@@ -67,13 +67,13 @@ Create the role 'admin' within your client and assign the role to your user. In 
 
 ## KeyCloak FrontEnd Integration
 
-- [ ] Add `oidc-spa` dependency to the [package.json](/webshopfrontend/package.json) file
+- [x] Add `oidc-spa` dependency to the [package.json](/webshopfrontend/package.json) file
 
 ```json
 "oidc-spa": "^10.2.11"
 ```
 
-- [ ] Create [OidcService.js](/webshopfrontend/src/services/OidcService.js)
+- [x] Create [OidcService.js](/webshopfrontend/src/services/OidcService.js)
 
 ```javascript
 import { createOidc } from 'oidc-spa/core';
@@ -92,7 +92,7 @@ export async function getOidc() {
 }
 ```
 
-- [ ] Create [Auth.js](/webshopfrontend/src/composables/Auth.js)
+- [x] Create [Auth.js](/webshopfrontend/src/composables/Auth.js)
 
 ```javascript
 import { ref, computed, onMounted } from 'vue';
@@ -152,9 +152,9 @@ export function useAuth() {
 }
 ```
 
-- [ ] Rename the file 'main.js' to 'main.lazy.js' and adapt it as follows.
+- [x] Rename the file 'main.js' to 'main.lazy.js' and adapt it as follows.
 
-- [ ] Import icons to 'main.lazy.js'
+- [x] Import icons to 'main.lazy.js'
 
 ```javascript
 import {
@@ -168,7 +168,7 @@ import {
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 ```
 
-- [ ] Rewrite [main.js](/webshopfrontend/src/main.js)
+- [x] Rewrite [main.js](/webshopfrontend/src/main.js)
 
 ```javascript
 import { oidcEarlyInit } from 'oidc-spa/entrypoint';
@@ -188,13 +188,13 @@ if (shouldLoadApp) {
 
 ### Router
 
-- [ ] Add import to [index.js][index.js]
+- [x] Add import to [index.js][index.js]
 
 ```javascript
 import { useAuth } from './../composables/Auth';
 ```
 
-- [ ] add `iSProtected` meta info to [index.js][index.js]
+- [x] add `iSProtected` meta info to [index.js][index.js]
 
 ```javascript
 {
@@ -208,7 +208,7 @@ import { useAuth } from './../composables/Auth';
 },
 ```
 
-- [ ] add routes `profile` and `unathorized`
+- [x] add routes `profile` and `unathorized`
 
 ```javascript
 {
@@ -229,7 +229,7 @@ import { useAuth } from './../composables/Auth';
 }
 ```
 
-- [ ] Prior to the statement 'export default router' add the interceptor that checks if the user is allowed to access the selected route:
+- [x] Prior to the statement 'export default router' add the interceptor that checks if the user is allowed to access the selected route:
 
 ```javascript
 router.beforeEach(async (to, from, next) => {
@@ -304,7 +304,7 @@ onMounted(async () => {
 </style>
 ```
 
-- [ ] create components 'UserProfile' [UserProfile.vue](/webshopfrontend/src/components/UserProfile.vue)
+- [x] create components 'UserProfile' [UserProfile.vue](/webshopfrontend/src/components/UserProfile.vue)
 
 ```vue
 <template>
@@ -374,7 +374,7 @@ label {
 </style>
 ```
 
-- [ ] Modify Navigator in [App.vue](/webshopfrontend/src/App.vue)
+- [x] Modify Navigator in [App.vue](/webshopfrontend/src/App.vue)
 
 ```javascript
 <template>
@@ -451,28 +451,28 @@ function handleLogout() { logout(); }
 
 ## Testing
 
-- [ ] Install new frontend dependency
+- [x] Install new frontend dependency
 
 ```console
 npm install
 ```
 
-- [ ] Start KeyCloak
+- [x] Start KeyCloak
 
-- [ ] Start Backend
+- [x] Start Backend
 
-- [ ] Start Frontend
+- [x] Start Frontend
 
 ## Commit
 
-- [ ] Create screenshot [week4-user-profile-view-maowit00][profile-view]
+- [x] Create screenshot [week4-user-profile-view-maowit00][profile-view]
 
 ![week4-user-profile-view-maowit00][profile-view]
 
 [profile-view]: /docs/week4-user-profile-view-maowit00.png
 
-- [ ] Stage and commit changes
+- [x] Stage and commit changes
 
-- [ ] Push
+- [x] Push
 
-- [ ] Create Pull Request
+- [x] Create Pull Request

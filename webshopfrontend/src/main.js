@@ -1,16 +1,13 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import router from './router';
+import { oidcEarlyInit } from 'oidc-spa/entrypoint';
 
-library.add(faHome);
+// Optional hardening (freezing network APIs during callback)
+const { shouldLoadApp } = oidcEarlyInit({
+  BASE_URL: import.meta.env.BASE_URL,
+  freezeFetch: true,
+  freezeXMLHttpRequest: true
+});
 
-const app = createApp(App)
-
-app.component("font-awesome-icon", FontAwesomeIcon)
-app.use(router)
-app.mount('#app')
+// Only load the actual app if we’re not in the OIDC callback processing phase
+if (shouldLoadApp) {
+  import('./main.lazy.js');
+}
