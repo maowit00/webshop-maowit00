@@ -65,7 +65,7 @@ export default instance;
 
 ### Dependency
 
-- [ ] Add the dependency to the [pom.xml](/webshopbackend/pom.xml)
+- [x] Add the dependency to the [pom.xml](/webshopbackend/pom.xml)
 
 ```xml
 <dependency>
@@ -79,7 +79,7 @@ export default instance;
 
 ### Configuration
 
-- [ ] Add the location of the KeyCloak public keys to [application.properties](/webshopbackend/src/main/resources/application.properties)
+- [x] Add the location of the KeyCloak public keys to [application.properties](/webshopbackend/src/main/resources/application.properties)
 
 ```properties
 spring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://localhost:8080/realms/maowit00-organisation/protocol/openid-connect/certs
@@ -90,13 +90,13 @@ spring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://localhost:8080/real
 
 ### Security Config
 
-- [ ] Create the directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/security](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/security)
+- [x] Create the directory [/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/security](/webshopbackend/src/main/java/de/hsesslingen/webshopbackend/security)
 
 ```console
 mkdir -p webshopbackend/src/main/java/de/hsesslingen/webshopbackend/security
 ```
 
-- [ ] Create [JWTSecurityConfig.java][JWTSecurityConfig.java]
+- [x] Create [JWTSecurityConfig.java][JWTSecurityConfig.java]
 
 ```java
 package de.hsesslingen.webshopbackend.security;
@@ -162,21 +162,21 @@ public class JWTSecurityConfig {
 
 ## Testing
 
-- [ ] Start KeyCloak
+- [x] Start KeyCloak
 
 ```console
 keycloak start-dev
 ```
 
-- [ ] Start Backend
+- [x] Start Backend
 
-- [ ] Start Frontend
+- [x] Start Frontend
 
-- [ ] Test the overall application. The frontend should still work as before
-  - [ ] Items are listed without login
-  - [ ] `Add Item` / `Edit Item` / `Delete` work after login as `maowit00` (role `admin`)
+- [x] Test the overall application. The frontend should still work as before
+  - [x] Items are listed without login
+  - [x] `Add Item` / `Edit Item` / `Delete` work after login as `maowit00` (role `admin`)
 
-- [ ] Test the backend with Bruno without a token. `POST`, `PUT` and `DELETE` must result in `401`
+- [x] Test the backend with Bruno without a token. `POST`, `PUT` and `DELETE` must result in `401`
 
 ```console
 curl -i -X POST http://localhost:8245/api-maowit00/item-management/v1/items
@@ -184,9 +184,9 @@ curl -i -X POST http://localhost:8245/api-maowit00/item-management/v1/items
 
 ### Screenshots Docs
 
-- [ ] Create screenshot [week5-POST-401-maowit00][week5-POST-401-maowit00]
-- [ ] Create screenshot [week5-PUT-401-maowit00][week5-PUT-401-maowit00]
-- [ ] Create screenshot [week5-DELETE-401-maowit00][week5-DELETE-401-maowit00]
+- [x] Create screenshot [week5-POST-401-maowit00][week5-POST-401-maowit00]
+- [x] Create screenshot [week5-PUT-401-maowit00][week5-PUT-401-maowit00]
+- [x] Create screenshot [week5-DELETE-401-maowit00][week5-DELETE-401-maowit00]
 
 ![week5-POST-401-maowit00][week5-POST-401-maowit00]
 ![week5-PUT-401-maowit00][week5-PUT-401-maowit00]
@@ -198,14 +198,14 @@ curl -i -X POST http://localhost:8245/api-maowit00/item-management/v1/items
 
 ## Commit and Merge
 
-- [ ] Commit all changes to branch `week5-1`
+- [x] Commit all changes to branch `week5-1`
 
-- [ ] Push the branch to the global repository
+- [x] Push the branch to the global repository
 
 ```console
 git push -u origin week5-1
 ```
 
-- [ ] Check the result at the [central repository](https://gitlab.hs-esslingen.de/swa-lab-wise25)
+- [x] Check the result at the [central repository](https://gitlab.hs-esslingen.de/swa-lab-wise25)
 
-- [ ] Create Merge request at GitLab for `week5-1`
+- [x] Create Merge request at GitLab for `week5-1`
