@@ -1,0 +1,44 @@
+{
+  "exp": 1793445769,
+  "iat": 1793445469,
+  "auth_time": 1793445464,
+  "jti": "onrtac:9b06ffd3-d3e1-3e9a-d363-2d0655c2baf9",
+  "iss": "http://localhost:8080/realms/maowit00-organisation",
+  "aud": "account",
+  "sub": "25db15b5-12f2-478d-9762-8c818becf192",
+  "typ": "Bearer",
+  "azp": "webshop-maowit00",
+  "sid": "F-kML-tbaAvXFZbXEWA222mM",
+  "acr": "0",
+  "allowed-origins": [
+    "*"
+  ],
+  "realm_access": {
+    "roles": [
+      "default-roles-maowit00-organisation",
+      "offline_access",
+      "uma_authorization"
+    ]
+  },
+  "resource_access": {
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ]
+    },
+    "webshop-maowit00": {
+      "roles": [
+        "admin"
+      ]
+    }
+  },
+  "scope": "openid profile email",
+  "email_verified": true,
+  "name": "maowit00 maowit00",
+  "preferred_username": "maowit00",
+  "given_name": "maowit00",
+  "family_name": "maowit00",
+  "email": "maowit00@hs-esslingen.de"
+}

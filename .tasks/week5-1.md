@@ -12,7 +12,7 @@ git switch -c week5-1
 
 ### Interceptor
 
-- [ ] Adapt [http-common.js](/webshopfrontend/src/http-common.js) to intercept http calls and insert the `access_token` into the `Authorization` header
+- [x] Adapt [http-common.js](/webshopfrontend/src/http-common.js) to intercept http calls and insert the `access_token` into the `Authorization` header
 
 ```javascript
 import axios from "axios";
@@ -48,18 +48,18 @@ export default instance;
 
 ## Inspect Token
 
-- [ ] Start KeyCloak, backend and frontend
-- [ ] Login in the frontend as `maowit00`
-- [ ] Open the developer tools in Firefox (`F12`) and go to the tab `Network`
-- [ ] Navigate to `Add Item` or `Edit Item` and search for a call to the backend (port `8245`)
-- [ ] Click on the call and in the tab `Headers` find the request header `Authorization`
-- [ ] Copy the JWT (the string after the keyword `Bearer`)
+- [x] Start KeyCloak, backend and frontend
+- [x] Login in the frontend as `maowit00`
+- [x] Open the developer tools in Firefox (`F12`) and go to the tab `Network`
+- [x] Navigate to `Add Item` or `Edit Item` and search for a call to the backend (port `8245`)
+- [x] Click on the call and in the tab `Headers` find the request header `Authorization`
+- [x] Copy the JWT (the string after the keyword `Bearer`)
   - In Firefox switch to the option `Raw`, otherwise the whole JWT can not be copied
-- [ ] Decode the JWT at [jwt.io](http://jwt.io) and check
-  - [ ] issuer `iss`: `http://localhost:8080/realms/maowit00-organisation`
-  - [ ] clientID `azp`: `webshop-maowit00`
-  - [ ] user information: `name`, `email`
-- [ ] Store the payload of the JWT in [JWTPayload.json](/docs/JWTPayload.json)
+- [x] Decode the JWT at [jwt.io](http://jwt.io) and check
+  - [x] issuer `iss`: `http://localhost:8080/realms/maowit00-organisation`
+  - [x] clientID `azp`: `webshop-maowit00`
+  - [x] user information: `name`, `email`
+- [x] Store the payload of the JWT in [JWTPayload.json](/docs/JWTPayload.json)
 
 ## Protect the Backend
 
