@@ -7,6 +7,7 @@ cd "$(realpath "$(dirname "$0")")/.."
 COMMANDS=(
   ".scripts/launch/keycloak.sh"
   ".scripts/launch/backend.sh"
+  ".scripts/launch/backend.sh 8290"
   ".scripts/launch/frontend.sh"
 )
 

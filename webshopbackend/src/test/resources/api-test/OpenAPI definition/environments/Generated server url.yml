@@ -9,3 +9,6 @@ variables:
   - name: baseUrl-dev
     value: http://localhost:8290
     description: ""
+  - name: baseUrl-lb
+    value: http://localhost:80
+    description: ""

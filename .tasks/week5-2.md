@@ -285,16 +285,16 @@ sudo systemctl restart nginx
 
 ## Test load balancing
 
-- [ ] Make sure both backend instances (`8245` and `8290`) are running
+- [x] Make sure both backend instances (`8245` and `8290`) are running
 
-- [ ] In Bruno duplicate the `GET` requests of the collection and add the postfix `-80`
-- [ ] Adapt the port in the request URLs to the load balancer port `80`
+- [x] In Bruno duplicate the `GET` requests of the collection and add the postfix `-80`
+- [x] Adapt the port in the request URLs to the load balancer port `80`
 
 ```url
 http://localhost/api-maowit00/item-management/v1/items
 ```
 
-- [ ] Send the request repeatedly. The response header `server-port` must alternate between `8245` and `8290`
+- [x] Send the request repeatedly. The response header `server-port` must alternate between `8245` and `8290`
 
 Quick check on the command line (prints the port of each answering instance):
 
@@ -304,25 +304,25 @@ for i in 1 2 3 4; do curl -si http://localhost/api-maowit00/item-management/v1/i
 
 ### Screenshots (top level of the project folder)
 
-- [ ] Create screenshot [week5-server-port-lb-8245-maowit00][week5-server-port-lb-8245-maowit00]
-- [ ] Create screenshot [week5-server-port-lb-8290-maowit00][week5-server-port-lb-8290-maowit00]
+- [x] Create screenshot [week5-server-port-lb-8245-maowit00][week5-server-port-lb-8245-maowit00]
+- [x] Create screenshot [week5-server-port-lb-8290-maowit00][week5-server-port-lb-8290-maowit00]
 
 ![week5-server-port-lb-8245-maowit00][week5-server-port-lb-8245-maowit00]
 ![week5-server-port-lb-8290-maowit00][week5-server-port-lb-8290-maowit00]
 
-[week5-server-port-lb-8245-maowit00]: /week5-server-port-lb-8245-maowit00.png
-[week5-server-port-lb-8290-maowit00]: /week5-server-port-lb-8290-maowit00.png
+[week5-server-port-lb-8245-maowit00]: /docs/week5-server-port-lb-8245-maowit00.png
+[week5-server-port-lb-8290-maowit00]: /docs/week5-server-port-lb-8290-maowit00.png
 
 ## Commit and Merge
 
-- [ ] Commit all changes to branch `week5-2`
+- [x] Commit all changes to branch `week5-2`
 
-- [ ] Push the branch to the global repository
+- [x] Push the branch to the global repository
 
 ```console
 git push -u origin week5-2
 ```
 
-- [ ] Check the result at the [central repository](https://gitlab.hs-esslingen.de/swa-lab-wise25)
+- [x] Check the result at the [HS-ES GitLab repository: swa-lab-wise26/webshop-maowit00.git](https://gitlab.hs-esslingen.de/swa-lab-wise26/webshop-maowit00)
 
-- [ ] Create Merge request at GitLab for `week5-2`
+- [x] Create Merge request at GitLab for `week5-2`
